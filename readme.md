@@ -5,7 +5,9 @@ A shell script is designed to create a modified version of Abitti, an educationa
 ## Requirements
 
 Linux-based operating system (tested on Ubuntu 20.04.5)
-xorriso installed via your preferred package manager
+
+Xorriso installed via your preferred package manager
+
 Access to sudo or a root account
 
 ## Usage
