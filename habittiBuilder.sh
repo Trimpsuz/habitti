@@ -29,12 +29,14 @@ sudo sed -i '/REJECT/d' ./squashfs-root/etc/digabi/firewall.d/9000-log-and-rejec
 #Change release name to distinguish from unmodified Abitti
 sudo sed -i 's/ABITTI/HABITTI/' ./squashfs-root/etc/digabios-release
 #Add root user with the name "habitti"
-echo "\nhabitti::0:0:root:/root:/bin/bash" | sudo tee -a ./squashfs-root/etc/passwd
+echo "\nhabitti::0:0:root:/root:/bin/bash" | sudo tee -a ./squashfs-root/etc/passwd > /dev/null
 #Add user digabi to sudoers (default abitti user)
-echo "\ndigabi	ALL=(ALL:ALL) ALL" | sudo tee -a ./squashfs-root/etc/sudoers
+echo "\ndigabi	ALL=(ALL:ALL) ALL" | sudo tee -a ./squashfs-root/etc/sudoers > /dev/null
 #Allow user digabi to use terminal
 sudo sed -i 's/false/bash/' ./squashfs-root/lib/live/config/0031-lock-user-account
 sudo chmod o+rx ./squashfs-root/usr/bin/terminator
+#Replace apt sources with the default debian sources
+echo "deb http://deb.debian.org/debian bullseye main contrib non-free\ndeb-src http://deb.debian.org/debian bullseye main contrib non-free\ndeb http://deb.debian.org/debian-security/ bullseye-security main contrib non-free\ndeb-src http://deb.debian.org/debian-security/ bullseye-security main contrib non-free\ndeb http://deb.debian.org/debian bullseye-updates main contrib non-free\ndeb-src http://deb.debian.org/debian bullseye-updates main contrib non-free" | sudo tee ./squashfs-root/etc/apt/sources.list > /dev/null
 #Disable mount backup check
 sudo sed -i 's/^/#/' ./squashfs-root/usr/local/sbin/mount-backup
 #Create modified squashfs filesystem
