@@ -31,7 +31,7 @@ sudo sed -i 's/ABITTI/HABITTI/' ./squashfs-root/etc/digabios-release
 #Add root user with the name "habitti"
 echo "\nhabitti::0:0:root:/root:/bin/bash" | sudo tee -a ./squashfs-root/etc/passwd
 #Add user digabi to sudoers (default abitti user)
-echo "\ndigabi	ALL=(ALL:ALL) ALL" | sudo tee -a ./squashfs-root/etc/passwd
+echo "\ndigabi	ALL=(ALL:ALL) ALL" | sudo tee -a ./squashfs-root/etc/sudoers
 #Allow user digabi to use terminal
 sudo sed -i 's/false/bash/' ./squashfs-root/lib/live/config/0031-lock-user-account
 sudo chmod o+rx ./squashfs-root/usr/bin/terminator
