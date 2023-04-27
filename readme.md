@@ -1,6 +1,6 @@
 # hAbitti
 
-A shell script is designed to create a modified version of Abitti, an educational exam environment software used in Finnish schools, with elevated privileges and access to internet.
+A shell script designed to create a modified version of Abitti, an educational exam environment software used in Finnish schools, with elevated privileges and access to internet.
 
 ## Requirements
 
