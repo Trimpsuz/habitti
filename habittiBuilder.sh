@@ -2,7 +2,7 @@
 if [ -e debian.iso ]; then
   echo "debian.iso exists, skipping download."
 else
-  wget https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-11.6.0-amd64-gnome.iso -O debian.iso
+  wget https://get.debian.org/images/archive/11.6.0-live/amd64/iso-hybrid/debian-live-11.6.0-amd64-gnome.iso -O debian.iso
 fi
 #Check if abitti filesystem exists
 if [ -e filesystem.squashfs ]; then
